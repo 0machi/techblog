@@ -1,5 +1,7 @@
 import { notFound } from 'next/navigation';
-import parse from 'html-react-parser';
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+import gfm from 'remark-gfm';
 import { getBlogDetail, getBlogList } from '../../libs/microcms';
 
 export async function generateStaticParams() {
@@ -29,10 +31,12 @@ export default async function StaticDetailPage({
   }
 
   return (
-    <div>
-      <h1>{blog.title}</h1>
-      <h2>{time}</h2>
-      <div>{parse(blog.content)}</div>
-    </div>
+    <ReactMarkdown
+      rehypePlugins={[rehypeRaw]}
+      remarkPlugins={[gfm]}
+      className="prose prose-stone mt-5 max-w-4xl m-auto"
+    >
+      {blog.content}
+    </ReactMarkdown>
   );
 }
