@@ -30,7 +30,6 @@ export default function BlogList({ blogList }: blogListProps) {
                 ) : (
                   <Image src='/noimage.png' alt='No Image' />
                 )}
-                {blog.title}
               </Link>
               <p>著者 {blog.author}</p>
               <p>投稿日 {formatDate(blog.createdAt, 'YYYY-MM-DD')}</p>
