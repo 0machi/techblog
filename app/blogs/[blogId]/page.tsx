@@ -3,6 +3,8 @@ import hljs from 'highlight.js'
 import { notFound } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
+import rehypeSlug from 'rehype-slug'
+import rehypeToc from 'rehype-toc'
 import gfm from 'remark-gfm'
 import 'highlight.js/styles/github-dark.css'
 import { getBlogDetail, getBlogList } from '../../libs/microcms'
@@ -41,18 +43,29 @@ export default async function StaticDetailPage({
     notFound()
   }
 
-  const blogTitle = `<h1>${blog.title}</h1>`
-  const blogContent = blog.content
-  const blogHtml = blogTitle + blogContent
+  const blogHtml = blog.content
   const highlightedBlogHtml = highlightCodeBlock(blogHtml)
 
+  const tocOptions = {
+    headings: 'h2',
+    cssClasses: {
+      toc: 'prose-toc',
+      list: 'prose',
+      listItem: 'prose-toc-list-item',
+      link: 'prose-toc-link',
+    },
+  }
+
   return (
-    <ReactMarkdown
-      rehypePlugins={[rehypeRaw]}
-      remarkPlugins={[gfm]}
-      className='prose prose-stone mt-5 max-w-4xl m-auto'
-    >
-      {highlightedBlogHtml}
-    </ReactMarkdown>
+    <div className='prose prose-stone mt-5 max-w-4xl m-auto'>
+      <h1>{blog.title}</h1>
+      <h2>目次</h2>
+      <ReactMarkdown
+        rehypePlugins={[rehypeRaw, rehypeSlug, [rehypeToc, tocOptions]]}
+        remarkPlugins={[gfm]}
+      >
+        {highlightedBlogHtml}
+      </ReactMarkdown>
+    </div>
   )
 }
