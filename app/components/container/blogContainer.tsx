@@ -28,5 +28,5 @@ export default async function BlogContainer({
   const blogHtml = blog.content
   const highlightedBlogHtml = highlightCodeBlock(blogHtml)
 
-  return <Blog blogTitle={blog.title} blogHtml={highlightedBlogHtml} />
+  return <Blog blog={blog} html={highlightedBlogHtml} />
 }
