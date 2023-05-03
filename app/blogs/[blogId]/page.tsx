@@ -19,27 +19,32 @@ export async function generateStaticParams() {
   return [...paths];
 }
 
-export default async function StaticDetailPage({
-  params: { blogId },
-}: {
-  params: { blogId: string };
-}) {
-  const blog = await getBlogDetail(blogId);
-
-  // ページの生成された時間を取得
-  const time = new Date().toLocaleString();
-
-  if (!blog) {
-    notFound();
-  }
-
-  const $ = load(blog.content);
+function highlightCodeBlock(html: string): string {
+  const $ = load(html);
   $('pre code').each((_, elm) => {
     const result = hljs.highlightAuto($(elm).text());
     $(elm).html(result.value);
     $(elm).addClass('hljs');
   });
-  const html = $.html();
+  const highlightedHtml = $.html();
+  return highlightedHtml;
+}
+
+export default async function StaticDetailPage({
+  params: { blogId }
+}: {
+  params: { blogId: string };
+}) {
+  const blog = await getBlogDetail(blogId);
+
+  if (!blog) {
+    notFound();
+  }
+
+  const blogTitle = `<h1>${blog.title}</h1>`;
+  const blogContent = blog.content;
+  const blogHtml = blogTitle + blogContent;
+  const highlightedBlogHtml = highlightCodeBlock(blogHtml);
 
   return (
     <ReactMarkdown
@@ -47,7 +52,7 @@ export default async function StaticDetailPage({
       remarkPlugins={[gfm]}
       className="prose prose-stone mt-5 max-w-4xl m-auto"
     >
-      {html}
+      {highlightedBlogHtml}
     </ReactMarkdown>
   );
 }
