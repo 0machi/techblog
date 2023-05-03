@@ -8,7 +8,8 @@ export type Category = {
 export type Blog = {
     id: string;
     title: string;
+    author: string;
     content: string;
     eyecatch?: MicroCMSImage;
-    category: Category;
+    categories: Category[];
 } & MicroCMSDate;
