@@ -1,6 +1,7 @@
 import BlogContainer from '../../components/container/blogContainer'
 import { getBlogList } from '../../libs/microcms'
 
+export const dynamicParams = false
 export async function generateStaticParams() {
   const { contents } = await getBlogList()
 
