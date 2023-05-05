@@ -31,7 +31,7 @@ export default function BlogList({ blogList }: blogListProps) {
             <div className='flex flex-wrap py-[1.5%] px-[3%]'>
               <div className='flex flex-col w-full h-full'>
                 <Link href={`/blogs/${blog.id}`}>
-                  <h1 className='text-2xl font-bold'>{blog.title}</h1>
+                  <h1 className='text-2xl font-bold hover:text-indigo-700'>{blog.title}</h1>
                 </Link>
                 <p className='mt-[6%]'>{blog.summary}</p>
                 <div className='mt-auto'>

@@ -22,11 +22,11 @@ export default function Header({ serviceList }: { serviceList: Service[] }) {
               <button
                 id='hs-mega-menu-basic-dr'
                 type='button'
-                className='flex items-center w-full hover:text-violet-700 font-medium'
+                className='flex items-center w-full hover:text-indigo-700 font-medium'
               >
                 Our Services
                 <svg
-                  className='ml-2 w-2.5 h-2.5 hover:text-violet-700'
+                  className='ml-2 w-2.5 h-2.5 hover:text-indigo-700'
                   width='16'
                   height='16'
                   viewBox='0 0 16 16'
@@ -47,7 +47,7 @@ export default function Header({ serviceList }: { serviceList: Service[] }) {
                   return (
                     <a
                       key={service.name}
-                      className='flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm hover:text-violet-700 focus:ring-2 focus:ring-blue-500'
+                      className='flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm hover:text-indigo-700 focus:ring-2 focus:ring-blue-500'
                       href={service.url}
                       target='_blank'
                       rel='noopener noreferrer'
