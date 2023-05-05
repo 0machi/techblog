@@ -15,7 +15,7 @@ export default function Pagination({
             key={i}
             href={`/blogs/pages/${i + 1}`}
             className={`my-[2%] mx-[0.5%] w-8 h-8 inline-flex justify-center items-center text-sm font-medium ${
-              pageId === i + 1 ? 'bg-indigo-500 text-white rounded-full' : ''
+              pageId === i + 1 ? 'bg-indigo-700 text-white rounded-full' : ''
             }`}
           >
             {i + 1}
