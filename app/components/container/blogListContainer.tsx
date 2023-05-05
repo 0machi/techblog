@@ -28,7 +28,7 @@ export default async function BlogListContainer({
   return (
     <div>
       <BlogList blogList={contents} />
-      <Pagenation pagenationCount={pagenationCount} />
+      <Pagenation pagenationCount={pagenationCount} pageId={Number(pageId)} />
     </div>
   )
 }
