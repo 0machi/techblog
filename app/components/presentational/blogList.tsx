@@ -15,6 +15,7 @@ export default function BlogList({ blogList }: blogListProps) {
           return (
             <li key={blog.id}>
               <Link href={`/blogs/${blog.id}`}>{blog.title}</Link>
+              <p>{blog.summary}</p>
               <Link href={`/blogs/${blog.id}`}>
                 {blog.eyecatch ? (
                   <Image

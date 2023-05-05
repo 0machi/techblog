@@ -9,6 +9,7 @@ export type Blog = {
     id: string;
     title: string;
     author: string;
+    summary: string;
     content: string;
     eyecatch?: MicroCMSImage;
     categories: Category[];
