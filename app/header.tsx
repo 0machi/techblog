@@ -10,7 +10,7 @@ export default function Header({ serviceList }: { serviceList: Service[] }) {
       >
         <div className='flex items-center justify-between'>
           <Link className='flex-none text-xl font-semibold' href='/blogs/pages/1'>
-            shinaps
+            shinaps Tech Blog
           </Link>
         </div>
         <div
