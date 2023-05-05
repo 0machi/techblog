@@ -6,6 +6,20 @@ const nextConfig = {
   images: {
     domains: ['images.microcms-assets.io'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/blogs/pages/1',
+        permanent: true,
+      },
+      {
+        source: '/blogs',
+        destination: '/blogs/pages/1',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig
