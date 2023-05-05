@@ -14,3 +14,8 @@ export type Blog = {
     eyecatch?: MicroCMSImage;
     categories: Category[];
 } & MicroCMSDate;
+
+export type Service = {
+    name: string
+    url: string
+}
