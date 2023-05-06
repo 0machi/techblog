@@ -1,62 +1,59 @@
-import { getCurrentYear } from '@/app/libs/dayjs'
-import type { Service } from '@/app/types'
+import { getCurrentYear } from '@/libs/dayjs'
+import { robotoRegular } from '@/styles/fonts'
+import { Service } from '@/types'
 
-export default function Footer({
-                                   serviceList,
-                                   contactList,
-                               }: {
-    serviceList: Service[]
-    contactList: Service[]
-}) {
-    return (
-        <footer>
-            <div>
-                <div>
-                    <div>
-                        <h4>Services</h4>
-                        <div>
-                            {serviceList.map((service) => {
-                                return (
-                                    <p key={service.name}>
-                                        <a
-                                            href={service.url}
-                                            target='_blank'
-                                            rel='noopener noreferrer'
-                                        >
-                                            {service.name}
-                                        </a>
-                                    </p>
-                                )
-                            })}
-                        </div>
-                    </div>
-                    <div>
-                        <h4>Contacts</h4>
-                        <div>
-                            {contactList.map((contact) => {
-                                return (
-                                    <p key={contact.name}>
-                                        <a
-                                            href={contact.url}
-                                            target='_blank'
-                                            rel='noopener noreferrer'
-                                        >
-                                            {contact.name}
-                                        </a>
-                                    </p>
-                                )
-                            })}
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <p>
-                            {`© ${getCurrentYear()} shinaps`}
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    )
+interface FooterProps {
+  serviceList: Service[]
+  contactList: Service[]
+}
+
+export default function Footer({ serviceList, contactList }: FooterProps) {
+  return (
+    <>
+      <div
+        className={`max-w-5xl mx-auto pt-12 flex flex-col items-center justify-center border-x border-dashed border-slate-200`}
+      >
+        <div className={`w-[680px] h-32 flex gap-24`}>
+          <div className={`flex flex-col`}>
+            <h3 className={`${robotoRegular.className} text-lg`}>services</h3>
+            <ul className={`flex flex-col justify-center items-left text-sm`}>
+              {serviceList.map((service) => {
+                return (
+                  <li key={service.name} className={`py-0.5`}>
+                    <a
+                      href={service.url}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      {service.name}
+                    </ a>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+
+          <div className={`flex flex-col`}>
+            <h3 className={`${robotoRegular.className} text-lg`}>contacts</h3>
+            <ul className={`flex flex-col justify-center items-left text-sm`}>
+              {contactList.map((service) => {
+                return (
+                  <li key={service.name} className={`py-0.5`}>
+                    <a
+                      href={service.url}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      {service.name}
+                    </ a>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        </div>
+        <span className={`text-xs text-neutral-400 block py-8`}>{`© ${getCurrentYear()} shinaps`}</span>
+      </div>
+    </>
+  )
 }
