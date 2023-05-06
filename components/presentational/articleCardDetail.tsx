@@ -24,23 +24,23 @@ export default function ArticleCardDetail({ article }: ArticleCardDetailProps) {
           <li className={`py-0.5`}>
             author: <span className={`hover:text-violet-600 cursor-pointer`}>{article.author}</span>
           </li>
-          <li className={`py-0.5`}>
-            categories: {
-            article.categories.map((category, index, array) => {
-              const isLast = index === array.length - 1
-              return (
-                <>
-                  <span
-                    key={category.id}
-                    className={`hover:text-violet-600 cursor-pointer`}
-                  >
-                    {category.name}
-                  </span>{!isLast ? ', ' : ''}
-                </>
-              )
-            })
+          {article.categories.length > 0 &&
+            (
+              <li className={`py-0.5 pl-0`}>
+                categories: {
+                article.categories.map((category, index, array) => {
+                  const isLast = index === array.length - 1
+                  return (
+                    <>
+                    <span key={category.id}
+                          className={`hover:text-violet-600 cursor-pointer`}>{category.name}</span>{!isLast ? ', ' : ''}
+                    </>
+                  )
+                })
+              }
+              </li>
+            )
           }
-          </li>
           <li className={`py-0.5`}>
             created_at: {formatDate(article.createdAt, 'YYYY.MM.DD')}
           </li>
