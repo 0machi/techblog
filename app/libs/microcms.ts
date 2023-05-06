@@ -1,6 +1,6 @@
 import { createClient } from 'microcms-js-sdk';
 import type { MicroCMSQueries } from 'microcms-js-sdk';
-import type { Blog } from '@/app/types';
+import type { Blog } from '../types/index';
 
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
