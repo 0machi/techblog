@@ -5,7 +5,7 @@ export type Category = {
   name: string;
 } & MicroCMSDate;
 
-export type Blog = {
+export type Article = {
   id: string;
   title: string;
   author: string;

@@ -1,15 +1,17 @@
 import { notFound } from 'next/navigation'
-import BlogList from '@/components/presentational/blogList'
+import ArticleList from '@/components/presentational/articleList'
+import HorizontalLine from '@/components/presentational/horizontalLine'
 import Pagination from '@/components/presentational/pagination'
-import { getBlogList } from '@/libs/microcms'
+import Title from '@/components/presentational/title'
+import { fetchArticleList } from '@/libs/microcms'
 
 const PER_PAGE = 2
 export const getPaginationCount = (totalCount: number) => Math.ceil(totalCount / PER_PAGE)
 
-export default async function BlogListContainer({ params: { pageId } }: {
+export default async function ArticleListContainer({ params: { pageId } }: {
   params: { pageId: string }
 }) {
-  const { contents, totalCount } = await getBlogList({
+  const { contents, totalCount } = await fetchArticleList({
     offset: (Number(pageId) - 1) * PER_PAGE,
     limit: PER_PAGE,
   })
@@ -24,9 +26,11 @@ export default async function BlogListContainer({ params: { pageId } }: {
   }
 
   return (
-    <div>
-      <BlogList blogList={contents} />
+    <>
+      <Title />
+      <HorizontalLine />
+      <ArticleList articleList={contents} />
       <Pagination paginationCount={paginationCount} pageId={Number(pageId)} />
-    </div>
+    </>
   )
 }

@@ -1,7 +1,7 @@
 import type { MicroCMSQueries } from 'microcms-js-sdk'
 import { createClient } from 'microcms-js-sdk'
-import { microCMSConfig } from '@/config/micro-cms'
-import type { Blog } from '@/types'
+import { microCMSConfig } from '@/config/microCms'
+import type { Article } from '@/types'
 
 
 // API取得用のクライアントを作成
@@ -10,28 +10,28 @@ export const client = createClient({
   apiKey: microCMSConfig.apiKey,
 })
 
-const endpoint = 'blogs'
+const endpoint = 'articles'
 
 // ブログ一覧を取得
-export const getBlogList = async (queries?: MicroCMSQueries) => {
-  const blogList = await client.getList<Blog>({
+export const fetchArticleList = async (queries?: MicroCMSQueries) => {
+  const articleList = await client.getList<Article>({
     endpoint,
     queries,
   })
 
-  return blogList
+  return articleList
 }
 
 // ブログの詳細を取得
-export const getBlogDetail = async (
+export const fetchArticle = async (
   contentId: string,
   queries?: MicroCMSQueries,
 ) => {
-  const blogDetail = await client.getListDetail<Blog>({
+  const article = await client.getListDetail<Article>({
     endpoint,
     contentId,
     queries,
   })
 
-  return blogDetail
+  return article
 }
