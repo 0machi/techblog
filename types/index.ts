@@ -1,21 +1,21 @@
-import type { MicroCMSImage, MicroCMSDate } from 'microcms-js-sdk';
+import type { MicroCMSDate, MicroCMSImage } from 'microcms-js-sdk'
 
 export type Category = {
-    id: string;
-    name: string;
+  id: string;
+  name: string;
 } & MicroCMSDate;
 
 export type Blog = {
-    id: string;
-    title: string;
-    author: string;
-    summary: string;
-    content: string;
-    eyecatch?: MicroCMSImage;
-    categories: Category[];
+  id: string;
+  title: string;
+  author: string;
+  summary: string;
+  content: string;
+  eyecatch?: MicroCMSImage;
+  categories: Category[];
 } & MicroCMSDate;
 
 export type Service = {
-    name: string
-    url: string
+  name: string
+  url: string
 }

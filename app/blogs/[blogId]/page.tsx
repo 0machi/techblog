@@ -4,15 +4,15 @@ import { getBlogList } from '@/libs/microcms'
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-    const { contents } = await getBlogList()
+  const { contents } = await getBlogList()
 
-    const paths = contents.map((blog) => {
-        return {
-            blogId: blog.id,
-        }
-    })
+  const paths = contents.map((blog) => {
+    return {
+      blogId: blog.id,
+    }
+  })
 
-    return [ ...paths ]
+  return [ ...paths ]
 }
 
 export default BlogContainer

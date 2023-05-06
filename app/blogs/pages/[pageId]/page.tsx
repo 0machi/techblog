@@ -1,19 +1,19 @@
-import BlogListContainer, { getPaginationCount, } from '@/components/container/blogListContainer'
+import BlogListContainer, { getPaginationCount } from '@/components/container/blogListContainer'
 import { getBlogList } from '@/libs/microcms'
 
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-    const { totalCount } = await getBlogList()
+  const { totalCount } = await getBlogList()
 
-    const range = (paginationCount: number) => [ ...Array(paginationCount) ].map((_, i) => 1 + i)
-    const paginationCount = getPaginationCount(totalCount)
-    const paths = range(paginationCount).map((pageId) => {
-        return {
-            pageId: pageId.toString(),
-        }
-    })
-    return [ ...paths ]
+  const range = (paginationCount: number) => [ ...Array(paginationCount) ].map((_, i) => 1 + i)
+  const paginationCount = getPaginationCount(totalCount)
+  const paths = range(paginationCount).map((pageId) => {
+    return {
+      pageId: pageId.toString(),
+    }
+  })
+  return [ ...paths ]
 }
 
 export default BlogListContainer
