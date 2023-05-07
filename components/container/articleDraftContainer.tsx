@@ -1,11 +1,12 @@
 import { notFound, redirect } from 'next/navigation'
-import Article from '@/components/presentational/article'
-import HorizontalLine from '@/components/presentational/horizontalLine'
-import Title from '@/components/presentational/title'
+import ArticlePage from '@/components/presentational/articlePage'
 import { highlightCodeBlock } from '@/libs/highlightjs'
 import { fetchArticle } from '@/libs/microcms'
 
-export default async function ArticleContainer({ params: { articleId }, searchParams: { draftKey } }: {
+export default async function ArticleContainer({
+  params: { articleId },
+  searchParams: { draftKey },
+}: {
   params: { articleId: string }
   searchParams: { draftKey?: string }
 }) {
@@ -21,12 +22,5 @@ export default async function ArticleContainer({ params: { articleId }, searchPa
   const articleHtml = article.content
   const highlightedArticleHtml = highlightCodeBlock(articleHtml)
 
-  return (
-    <>
-      <Title />
-      <HorizontalLine />
-      <Article article={article} html={highlightedArticleHtml} />
-      <HorizontalLine />
-    </>
-  )
+  return <ArticlePage article={article} html={highlightedArticleHtml} />
 }
