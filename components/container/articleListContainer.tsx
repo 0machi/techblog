@@ -1,8 +1,5 @@
 import { notFound } from 'next/navigation'
-import ArticleList from '@/components/presentational/articleList'
-import HorizontalLine from '@/components/presentational/horizontalLine'
-import Pagination from '@/components/presentational/pagination'
-import Title from '@/components/presentational/title'
+import ArticleListPage from '@/components/presentational/articleListPage'
 import { fetchArticleListByPage } from '@/libs/microcms'
 import { getPaginationCount } from '@/libs/pagination'
 
@@ -19,12 +16,5 @@ export default async function ArticleListContainer({
   const paginationCount = getPaginationCount(totalCount)
   if (paginationCount < pageIdNumber) return notFound()
 
-  return (
-    <>
-      <Title />
-      <HorizontalLine />
-      <ArticleList articleList={contents} />
-      <Pagination paginationCount={paginationCount} pageId={pageIdNumber} />
-    </>
-  )
+  return <ArticleListPage articleList={contents} paginationCount={paginationCount} />
 }
