@@ -1,8 +1,8 @@
 import type { MicroCMSQueries } from 'microcms-js-sdk'
 import { createClient } from 'microcms-js-sdk'
+import { MicroCMSListResponse } from 'microcms-js-sdk/dist/cjs/types'
 import { microCMSConfig } from '@/config/microCms'
 import type { Article, Category } from '@/types'
-
 
 // API取得用のクライアントを作成
 export const client = createClient({
@@ -12,7 +12,7 @@ export const client = createClient({
 
 const articleEndpoint = 'articles'
 const categoryEndpoint = 'categories'
-const perPage = Number(process.env.PER_PAGE)
+const perPage = Number(microCMSConfig.perPage)
 
 // ブログ一覧を取得
 export const fetchArticleList = async (queries?: MicroCMSQueries) => {
@@ -38,10 +38,7 @@ export const fetchArticleListByPage = async (pageId: number, queries?: MicroCMSQ
 }
 
 // ブログの詳細を取得
-export const fetchArticle = async (
-  contentId: string,
-  queries?: MicroCMSQueries,
-) => {
+export const fetchArticle = async (contentId: string, queries?: MicroCMSQueries) => {
   const article = await client.getListDetail<Article>({
     endpoint: articleEndpoint,
     contentId,
@@ -58,4 +55,13 @@ export const fetchCategoryList = async (queries?: MicroCMSQueries) => {
   })
 
   return categoryList
+}
+
+export const fetchArticlesByAuthorName = async (name: string) => {
+  const articleList = await client.get<MicroCMSListResponse<Article>>({
+    endpoint: 'articles',
+    queries: { filters: `author[equals]${name}` },
+  })
+
+  return articleList
 }
