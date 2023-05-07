@@ -1,4 +1,4 @@
-import { Service } from '@/types'
+import type { Service } from '@/types'
 
 export const contactList: Service[] = [
   { name: 'Twitter', url: 'https://twitter.com/sh1n4ps' },

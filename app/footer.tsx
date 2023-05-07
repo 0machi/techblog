@@ -1,6 +1,6 @@
 import { getCurrentYear } from '@/libs/dayjs'
 import { robotoRegular } from '@/styles/fonts'
-import { Service } from '@/types'
+import type { Service } from '@/types'
 
 interface FooterProps {
   serviceList: Service[]
@@ -20,13 +20,9 @@ export default function Footer({ serviceList, contactList }: FooterProps) {
               {serviceList.map((service) => {
                 return (
                   <li key={service.name} className={`py-0.5`}>
-                    <a
-                      href={service.url}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
+                    <a href={service.url} target='_blank' rel='noopener noreferrer'>
                       {service.name}
-                    </ a>
+                    </a>
                   </li>
                 )
               })}
@@ -39,20 +35,18 @@ export default function Footer({ serviceList, contactList }: FooterProps) {
               {contactList.map((service) => {
                 return (
                   <li key={service.name} className={`py-0.5`}>
-                    <a
-                      href={service.url}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
+                    <a href={service.url} target='_blank' rel='noopener noreferrer'>
                       {service.name}
-                    </ a>
+                    </a>
                   </li>
                 )
               })}
             </ul>
           </div>
         </div>
-        <span className={`text-xs text-neutral-400 block py-8`}>{`© ${getCurrentYear()} shinaps`}</span>
+        <span
+          className={`text-xs text-neutral-400 block py-8`}
+        >{`© ${getCurrentYear()} shinaps`}</span>
       </div>
     </>
   )

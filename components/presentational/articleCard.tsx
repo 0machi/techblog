@@ -2,18 +2,17 @@ import ArticleCardDetail from '@/components/presentational/articleCardDetail'
 import ArticleCardImage from '@/components/presentational/articleCardImage'
 import HorizontalLine from '@/components/presentational/horizontalLine'
 import VerticalLine from '@/components/presentational/verticalLine'
-import { Article } from '@/types'
+import type { Article } from '@/types'
 
 interface ArticleCardProps {
-  article: Article;
-  isEven: boolean;
+  article: Article
+  isEven: boolean
 }
-
 
 export default function ArticleCard({ article, isEven }: ArticleCardProps) {
   return (
     <>
-      {isEven ?
+      {isEven ? (
         <>
           <div
             className={`h-[300px] max-w-5xl max-lg:max-w-3xl mx-auto flex items-center justify-between max-lg:justify-center border-x border-dashed border-slate-200`}
@@ -24,7 +23,7 @@ export default function ArticleCard({ article, isEven }: ArticleCardProps) {
           </div>
           <HorizontalLine />
         </>
-        :
+      ) : (
         <>
           <div
             className={`h-[300px] max-w-5xl max-lg:max-w-3xl mx-auto flex items-center justify-between max-lg:justify-center border-x border-dashed border-slate-200`}
@@ -35,7 +34,7 @@ export default function ArticleCard({ article, isEven }: ArticleCardProps) {
           </div>
           <HorizontalLine />
         </>
-      }
+      )}
     </>
   )
 }

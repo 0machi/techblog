@@ -1,7 +1,7 @@
 import Article from '@/components/presentational/article'
 import HorizontalLine from '@/components/presentational/horizontalLine'
 import Title from '@/components/presentational/title'
-import { Article as ArticleType } from '@/types'
+import type { Article as ArticleType } from '@/types'
 
 type ArticlePageProps = {
   article: ArticleType
