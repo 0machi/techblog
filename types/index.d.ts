@@ -19,3 +19,9 @@ export type Service = {
   name: string
   url: string
 }
+
+export type Toc = {
+  text: string
+  id: string
+  name: string
+}[]
