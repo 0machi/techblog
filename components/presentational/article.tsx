@@ -1,6 +1,7 @@
+import Link from 'next/link'
 import React from 'react'
 import { formatDate } from '@/libs/dayjs'
-import { robotoBold, robotoMonoRegular } from '@/styles/fonts'
+import { robotoBold, robotoMonoRegular, robotoRegular } from '@/styles/fonts'
 import type { Article, Toc } from '@/types'
 
 type ArticleProps = {
@@ -29,9 +30,14 @@ export default function Article({ toc, article, html }: ArticleProps) {
                   const isLast = index === array.length - 1
                   return (
                     <>
-                      <span key={category.id} className={`hover:text-violet-600 cursor-pointer`}>
-                        {category.name}
-                      </span>
+                      <Link
+                        href={`/articles/categories/${category.id}/pages/1`}
+                        className={`${robotoMonoRegular.className} no-underline text-neutral-400`}
+                      >
+                        <span key={category.id} className={`hover:text-violet-600 cursor-pointer`}>
+                          {category.name}
+                        </span>
+                      </Link>
                       {!isLast ? ', ' : ''}
                     </>
                   )
@@ -48,11 +54,16 @@ export default function Article({ toc, article, html }: ArticleProps) {
           </ul>
 
           <h2>目次</h2>
-          {toc.map((item) => (
-            <li key={item.id}>
-              <a href={`#${item.id}`}>{item.text}</a>
-            </li>
-          ))}
+          <ul className={`pl-4`}>
+            {toc.map((item) => (
+              <li key={item.id} className={`list-none pl-0`}>
+                <a href={`#${item.id}`} className={`hover:text-violet-600 no-underline text-base`}>
+                  - {item.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+
           <div dangerouslySetInnerHTML={{ __html: html }}></div>
         </div>
       </div>

@@ -27,9 +27,11 @@ export default function ArticleCardDetail({ article }: ArticleCardDetailProps) {
                 const isLast = index === array.length - 1
                 return (
                   <>
-                    <span key={category.id} className={`hover:text-violet-600 cursor-pointer`}>
-                      {category.name}
-                    </span>
+                    <Link href={`/articles/categories/${category.id}/pages/1`}>
+                      <span key={category.id} className={`hover:text-violet-600 cursor-pointer`}>
+                        {category.name}
+                      </span>
+                    </Link>
                     {!isLast ? ', ' : ''}
                   </>
                 )
