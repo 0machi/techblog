@@ -3,7 +3,7 @@ interface VerticalLineProps {
 }
 
 export default function VerticalLine({ isPcOnly = false }: VerticalLineProps) {
-  const pcOnlyClass = isPcOnly ? 'pc-only' : ''
+  const pcOnlyClass = isPcOnly ? 'max-lg:hidden' : ''
 
   return (
     <div

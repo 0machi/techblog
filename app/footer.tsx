@@ -13,7 +13,7 @@ export default function Footer({ serviceList, contactList }: FooterProps) {
       <div
         className={`max-w-5xl mx-auto pt-12 flex flex-col items-center justify-center border-x border-dashed border-slate-200`}
       >
-        <div className={`w-[680px] h-32 flex gap-24`}>
+        <div className={`max-w-[680px] h-32 flex gap-24`}>
           <div className={`flex flex-col`}>
             <h3 className={`${robotoRegular.className} text-lg`}>services</h3>
             <ul className={`flex flex-col justify-center items-left text-sm`}>
