@@ -8,11 +8,14 @@ import { fetchArticleList } from '@/libs/microcms'
 const PER_PAGE = 2
 export const getPaginationCount = (totalCount: number) => Math.ceil(totalCount / PER_PAGE)
 
-export default async function ArticleListContainer({ params: { pageId } }: {
+export default async function ArticleListContainer({
+  params: { pageId },
+}: {
   params: { pageId: string }
 }) {
+  const pageIdNumber = Number(pageId) || 1
   const { contents, totalCount } = await fetchArticleList({
-    offset: (Number(pageId) - 1) * PER_PAGE,
+    offset: (pageIdNumber - 1) * PER_PAGE,
     limit: PER_PAGE,
   })
 
@@ -21,7 +24,7 @@ export default async function ArticleListContainer({ params: { pageId } }: {
   }
 
   const paginationCount = getPaginationCount(totalCount)
-  if (paginationCount < Number(pageId)) {
+  if (paginationCount < pageIdNumber) {
     return notFound()
   }
 
@@ -30,7 +33,7 @@ export default async function ArticleListContainer({ params: { pageId } }: {
       <Title />
       <HorizontalLine />
       <ArticleList articleList={contents} />
-      <Pagination paginationCount={paginationCount} pageId={Number(pageId)} />
+      <Pagination paginationCount={paginationCount} pageId={pageIdNumber} />
     </>
   )
 }
