@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header>
       <div
-        className={`h-16 max-w-5xl mx-auto flex justify-between items-center border-x border-dashed border-slate-200`}>
+        className={`h-16 max-w-5xl max-lg:max-w-3xl mx-auto flex justify-between items-center border-x border-dashed border-slate-200`}>
         <h1 className={`${robotoBold.className} text-2xl px-3`}>shinaps</h1>
         {linkToOurServices && (
           <a href={linkToOurServices} className={`px-3`}>Our services</a>

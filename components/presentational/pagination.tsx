@@ -11,7 +11,7 @@ export default function Pagination({ paginationCount, pageId }: paginationProps)
   return (
     <>
       <div
-        className={`h-32 max-w-5xl mx-auto flex items-center justify-between border-x border-dashed border-slate-200`}
+        className={`h-32 max-w-5xl max-lg:max-w-3xl mx-auto flex items-center justify-between border-x border-dashed border-slate-200`}
       >
         <ul className={`flex w-40 mx-auto justify-center items-center`}>
           {[ ...Array(paginationCount) ].map((_, i) => {
