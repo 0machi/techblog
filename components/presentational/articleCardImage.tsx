@@ -11,7 +11,7 @@ type articleCardImageProps = {
 
 export default function ArticleCardImage({ id, eyeCatch }: articleCardImageProps) {
   return (
-    <div className={`w-[320px] h-[280px] p-3 grow pc-only`}>
+    <div className={`w-[320px] h-[280px] p-3 grow max-lg:hidden`}>
       <Link href={`/articles/${id}`}>
         <div className={`w-full h-full relative`}>
           {eyeCatch ? (

@@ -10,8 +10,8 @@ type ArticleCardDetailProps = {
 
 export default function ArticleCardDetail({ article }: ArticleCardDetailProps) {
   return (
-    <div className={`w-[624px] grow`}>
-      <div className={`w-[624px] p-3 mx-auto`}>
+    <div className={`max-w-[624px] grow`}>
+      <div className={`max-w-[624px] p-3 mx-auto`}>
         <Link href={`/articles/${article.id}`}>
           <h2 className={`${robotoBold.className} p-3 text-xl`}>
             {article.title}
