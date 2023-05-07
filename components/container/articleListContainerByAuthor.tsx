@@ -3,7 +3,7 @@ import ArticleListPage from '@/components/presentational/articleListPage'
 import { fetchArticleListByPage } from '@/libs/microcms'
 import { getPaginationCount } from '@/libs/pagination'
 
-export default async function ArticleListContainerByCategory({
+export default async function ArticleListContainerByAuthor({
   params: { pageId, author },
 }: {
   params: { pageId: string; author: string }
