@@ -1,24 +1,15 @@
 import React from 'react'
 import { formatDate } from '@/libs/dayjs'
 import { robotoBold, robotoMonoRegular } from '@/styles/fonts'
-import type { Article } from '@/types'
+import type { Article, Toc } from '@/types'
 
 type ArticleProps = {
+  toc: Toc
   article: Article
   html: string
 }
 
-export default function Article({ article, html }: ArticleProps) {
-  const tocOptions = {
-    headings: 'h2',
-    cssClasses: {
-      toc: 'prose-toc',
-      list: 'prose',
-      listItem: 'prose-toc-list-item',
-      link: 'prose-toc-link',
-    },
-  }
-
+export default function Article({ toc, article, html }: ArticleProps) {
   return (
     <>
       <div
@@ -57,6 +48,9 @@ export default function Article({ article, html }: ArticleProps) {
           </ul>
 
           <h2>目次</h2>
+          {toc.map((item) => (
+            <li key={item.id}>{item.text}</li>
+          ))}
           <div dangerouslySetInnerHTML={{ __html: html }}></div>
         </div>
       </div>

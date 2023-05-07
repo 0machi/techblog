@@ -1,19 +1,20 @@
 import Article from '@/components/presentational/article'
 import HorizontalLine from '@/components/presentational/horizontalLine'
 import Title from '@/components/presentational/title'
-import type { Article as ArticleType } from '@/types'
+import type { Article as ArticleType, Toc } from '@/types'
 
 type ArticlePageProps = {
+  toc: Toc
   article: ArticleType
   html: string
 }
 
-export default function ArticlePage({ article, html }: ArticlePageProps) {
+export default function ArticlePage({ toc, article, html }: ArticlePageProps) {
   return (
     <>
       <Title />
       <HorizontalLine />
-      <Article article={article} html={html} />
+      <Article toc={toc} article={article} html={html} />
       <HorizontalLine />
     </>
   )
