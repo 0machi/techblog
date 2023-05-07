@@ -1,6 +1,5 @@
 import type { MicroCMSQueries } from 'microcms-js-sdk'
 import { createClient } from 'microcms-js-sdk'
-import { MicroCMSListResponse } from 'microcms-js-sdk/dist/cjs/types'
 import { microCMSConfig } from '@/config/microCms'
 import type { Article, Category } from '@/types'
 
@@ -55,13 +54,4 @@ export const fetchCategoryList = async (queries?: MicroCMSQueries) => {
   })
 
   return categoryList
-}
-
-export const fetchArticlesByAuthorName = async (name: string) => {
-  const articleList = await client.get<MicroCMSListResponse<Article>>({
-    endpoint: 'articles',
-    queries: { filters: `author[equals]${name}` },
-  })
-
-  return articleList
 }
