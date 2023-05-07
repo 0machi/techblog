@@ -50,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     {children}
     <Footer serviceList={serviceList} contactList={contactList} />
     <HorizontalLine />
-    <div className={`max-w-5xl h-8 mx-auto border-x border-dashed border-slate-200`} />
+    <div className={`max-w-5xl max-lg:max-w-3xl h-8 mx-auto border-x border-dashed border-slate-200`} />
     </body>
     </html>
   )

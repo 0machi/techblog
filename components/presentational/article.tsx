@@ -22,7 +22,7 @@ export default function Article({ article, html }: ArticleProps) {
   return (
     <>
       <div
-        className={`prose prose-stone p-3 max-w-5xl mx-auto border-x border-dashed border-slate-200`}
+        className={`prose prose-stone p-3 max-w-5xl max-lg:max-w-3xl mx-auto border-x border-dashed border-slate-200`}
       >
         <div className={`max-w-3xl mx-auto pt-12 pb-6`}>
           <h1 className={`${robotoBold.className}`}>{article.title}</h1>

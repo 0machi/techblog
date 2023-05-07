@@ -16,7 +16,7 @@ export default function ArticleCard({ article, isEven }: ArticleCardProps) {
       {isEven ?
         <>
           <div
-            className={`h-[300px] max-w-5xl mx-auto flex items-center justify-between border-x border-dashed border-slate-200`}
+            className={`h-[300px] max-w-5xl max-lg:max-w-3xl mx-auto flex items-center justify-between max-lg:justify-center border-x border-dashed border-slate-200`}
           >
             <ArticleCardDetail article={article} />
             <VerticalLine isPcOnly={true} />
@@ -27,7 +27,7 @@ export default function ArticleCard({ article, isEven }: ArticleCardProps) {
         :
         <>
           <div
-            className={`h-[300px] max-w-5xl mx-auto flex items-center justify-between border-x border-dashed border-slate-200`}
+            className={`h-[300px] max-w-5xl max-lg:max-w-3xl mx-auto flex items-center justify-between max-lg:justify-center border-x border-dashed border-slate-200`}
           >
             <ArticleCardImage id={article.id} eyeCatch={article.eyecatch} />
             <VerticalLine isPcOnly={true} />
