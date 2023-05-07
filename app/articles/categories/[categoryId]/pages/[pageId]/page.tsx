@@ -11,7 +11,7 @@ export async function generateStaticParams() {
   const range = (paginationCount: number) => [...Array(paginationCount)].map((_, i) => 1 + i)
   const paginationCount = getPaginationCount(totalCount)
 
-  let paths: { categoryId: string; pageId: string }[] = []
+  const paths: { categoryId: string; pageId: string }[] = []
   for (const category of contents) {
     for (const pageId of range(paginationCount)) {
       paths.push({
