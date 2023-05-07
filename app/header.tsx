@@ -17,11 +17,21 @@ export default function Header() {
             Our services
           </a>
         )}
-        <div className={`flex justify-center items-baseline gap-4 px-3`}>
-          <a href={twitter.url} target='_blank' rel='noopener noreferrer'>
+        <div className={`flex justify-center items-baseline px-3`}>
+          <a
+            href={twitter.url}
+            target='_blank'
+            rel='noopener noreferrer'
+            className={`w-12 h-12 flex justify-center items-center`}
+          >
             <Image src='/twitter-icon.svg' width={22} height={22} alt='github icon' />
           </a>
-          <a href={github.url} target='_blank' rel='noopener noreferrer'>
+          <a
+            href={github.url}
+            target='_blank'
+            rel='noopener noreferrer'
+            className={`w-12 h-12 flex justify-center items-center`}
+          >
             <Image src='/github-icon.svg' width={20} height={20} alt='github icon' />
           </a>
         </div>
