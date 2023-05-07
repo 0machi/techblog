@@ -8,7 +8,7 @@ import { serviceList } from '@/config/serviceList'
 import { robotoRegular } from '@/styles/fonts'
 
 const siteName = 'shinaps tech blog'
-const description = 'shinaps　tech blog'
+const description = 'shinaps tech blog'
 const url = 'https://shinaps-techblog.vercel.app/'
 
 export const metadata: Metadata = {
