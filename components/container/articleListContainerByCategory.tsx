@@ -20,14 +20,10 @@ export default async function ArticleListContainer({
     filters: `categories[contains]${categoryId}`,
   })
 
-  if (!contents || contents.length === 0) {
-    return <h1>No contents</h1>
-  }
+  if (!contents || contents.length === 0) return <h1>No contents</h1>
 
   const paginationCount = getPaginationCount(totalCount)
-  if (paginationCount < pageIdNumber) {
-    return notFound()
-  }
+  if (paginationCount < pageIdNumber) return notFound()
 
   return (
     <>
