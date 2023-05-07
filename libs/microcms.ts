@@ -1,7 +1,7 @@
 import type { MicroCMSQueries } from 'microcms-js-sdk'
 import { createClient } from 'microcms-js-sdk'
 import { microCMSConfig } from '@/config/microCms'
-import type { Article } from '@/types'
+import type { Article, Category } from '@/types'
 
 
 // API取得用のクライアントを作成
@@ -34,4 +34,13 @@ export const fetchArticle = async (
   })
 
   return article
+}
+
+export const fetchCategoryList = async (queries?: MicroCMSQueries) => {
+  const categoryList = await client.getList<Category>({
+    endpoint: 'categories',
+    queries,
+  })
+
+  return categoryList
 }
