@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import { formatDate } from '@/libs/dayjs'
-import { robotoBold, robotoMonoRegular, robotoRegular } from '@/styles/fonts'
+import { robotoBold, robotoMonoRegular } from '@/styles/fonts'
 import type { Article, Toc } from '@/types'
 
 type ArticleProps = {
@@ -20,8 +20,11 @@ export default function Article({ toc, article, html }: ArticleProps) {
           <h1 className={`${robotoBold.className}`}>{article.title}</h1>
           <ul className={`${robotoMonoRegular.className} p-3 text-sm text-neutral-400 list-none`}>
             <li className={`py-0.5 pl-0`}>
-              <Link href={`/articles/authors/${article.author}/pages/1`}>
-                author:{' '}
+              author:{' '}
+              <Link
+                href={`/articles/authors/${article.author}/pages/1`}
+                className={`${robotoMonoRegular.className} no-underline text-neutral-400`}
+              >
                 <span className={`hover:text-violet-600 cursor-pointer`}>{article.author}</span>
               </Link>
             </li>
