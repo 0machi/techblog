@@ -49,7 +49,9 @@ export default function Article({ toc, article, html }: ArticleProps) {
 
           <h2>目次</h2>
           {toc.map((item) => (
-            <li key={item.id}>{item.text}</li>
+            <li key={item.id}>
+              <a href={`#${item.id}`}>{item.text}</a>
+            </li>
           ))}
           <div dangerouslySetInnerHTML={{ __html: html }}></div>
         </div>
