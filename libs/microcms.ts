@@ -10,13 +10,28 @@ export const client = createClient({
   apiKey: microCMSConfig.apiKey,
 })
 
-const endpoint = 'articles'
+const articleEndpoint = 'articles'
+const categoryEndpoint = 'categories'
+const perPage = Number(process.env.PER_PAGE)
 
 // ブログ一覧を取得
 export const fetchArticleList = async (queries?: MicroCMSQueries) => {
   const articleList = await client.getList<Article>({
-    endpoint,
+    endpoint: articleEndpoint,
     queries,
+  })
+
+  return articleList
+}
+
+export const fetchArticleListByPage = async (pageId: number, queries?: MicroCMSQueries) => {
+  const articleList = await client.getList<Article>({
+    endpoint: articleEndpoint,
+    queries: {
+      ...queries,
+      offset: (pageId - 1) * perPage,
+      limit: perPage,
+    },
   })
 
   return articleList
@@ -28,7 +43,7 @@ export const fetchArticle = async (
   queries?: MicroCMSQueries,
 ) => {
   const article = await client.getListDetail<Article>({
-    endpoint,
+    endpoint: articleEndpoint,
     contentId,
     queries,
   })
@@ -38,7 +53,7 @@ export const fetchArticle = async (
 
 export const fetchCategoryList = async (queries?: MicroCMSQueries) => {
   const categoryList = await client.getList<Category>({
-    endpoint: 'categories',
+    endpoint: categoryEndpoint,
     queries,
   })
 

@@ -3,20 +3,16 @@ import ArticleList from '@/components/presentational/articleList'
 import HorizontalLine from '@/components/presentational/horizontalLine'
 import Pagination from '@/components/presentational/pagination'
 import Title from '@/components/presentational/title'
-import { fetchArticleList } from '@/libs/microcms'
+import { fetchArticleListByPage } from '@/libs/microcms'
+import { getPaginationCount } from '@/libs/pagination'
 
-const PER_PAGE = 2
-export const getPaginationCount = (totalCount: number) => Math.ceil(totalCount / PER_PAGE)
-
-export default async function ArticleListContainer({
+export default async function ArticleListContainerByCategory({
   params: { pageId, categoryId },
 }: {
   params: { pageId: string; categoryId: string }
 }) {
   const pageIdNumber = Number(pageId) || 1
-  const { contents, totalCount } = await fetchArticleList({
-    offset: (pageIdNumber - 1) * PER_PAGE,
-    limit: PER_PAGE,
+  const { contents, totalCount } = await fetchArticleListByPage(pageIdNumber, {
     filters: `categories[contains]${categoryId}`,
   })
 
