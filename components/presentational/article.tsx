@@ -69,7 +69,7 @@ export default function Article({ toc, article, html }: ArticleProps) {
             ))}
           </ul>
 
-          <div dangerouslySetInnerHTML={{ __html: html }}></div>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
         </div>
       </div>
     </>
