@@ -1,23 +1,9 @@
 import 'server-only'
 import type { MicroCMSQueries } from 'microcms-js-sdk'
-import { createClient } from 'microcms-js-sdk'
 import { microCMSConfig } from '@/config/microCms'
+import { client } from '@/libs/microcms/client'
 import type { Article, Category } from '@/types'
 
-// API取得用のクライアントを作成
-export const client = createClient({
-  serviceDomain: microCMSConfig.serviceDomain,
-  apiKey: microCMSConfig.apiKey,
-  customFetch: (input, init) => {
-    if (typeof input === 'string') {
-      const newInput = new URL(input)
-      const time = new Date()
-      newInput.searchParams.set('cacheclearparam', `${time.getMilliseconds()}`)
-      return fetch(newInput.href, init)
-    }
-    return fetch(input, init)
-  },
-})
 
 const articleEndpoint = 'articles'
 const categoryEndpoint = 'categories'
