@@ -1,6 +1,6 @@
 import ArticleCardDetail from '@/components/presentational/articleCardDetail'
 import ArticleCardImage from '@/components/presentational/articleCardImage'
-import HorizontalLine from '@/components/presentational/horizontalLine'
+import HorizontalLine from '@/components/presentational/ui/horizontalLine'
 import VerticalLine from '@/components/presentational/ui/verticalLine'
 import type { Article } from '@/types'
 

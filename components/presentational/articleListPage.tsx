@@ -1,5 +1,5 @@
 import ArticleList from '@/components/presentational/articleList'
-import HorizontalLine from '@/components/presentational/horizontalLine'
+import HorizontalLine from '@/components/presentational/ui/horizontalLine'
 import Pagination from '@/components/presentational/pagination'
 import Title from '@/components/presentational/ui/title'
 import type { Article } from '@/types'
