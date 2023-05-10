@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import ArticleListPage from '@/components/presentational/articleListPage'
+import ArticleListPage from '@/components/presentational/articleListPage/articleListPage'
 import { fetchArticleListByPage } from '@/libs/microcms'
 import { getPaginationCount } from '@/libs/pagination'
 
