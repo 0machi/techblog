@@ -1,3 +1,4 @@
+import 'server-only'
 import type { MicroCMSQueries } from 'microcms-js-sdk'
 import { createClient } from 'microcms-js-sdk'
 import { microCMSConfig } from '@/config/microCms'
