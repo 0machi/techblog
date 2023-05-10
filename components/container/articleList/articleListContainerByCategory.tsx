@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import ArticleListPage from '@/components/presentational/articleList/articleListPage'
-import { fetchArticleListByPage } from '@/libs/microcms'
+import { fetchArticleListByPage } from '@/libs/microcms/microcms'
 import { getPaginationCount } from '@/libs/pagination'
 
 export default async function ArticleListContainerByCategory({

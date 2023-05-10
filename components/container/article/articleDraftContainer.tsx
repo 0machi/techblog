@@ -2,7 +2,7 @@ import { notFound, redirect } from 'next/navigation'
 import ArticlePage from '@/components/presentational/article/articlePage'
 import { highlightCodeBlock } from '@/libs/highlightjs'
 import { getToc } from '@/libs/markdown'
-import { fetchArticle } from '@/libs/microcms'
+import { fetchArticle } from '@/libs/microcms/microcms'
 
 export default async function ArticleContainer({
   params: { articleId },

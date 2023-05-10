@@ -1,5 +1,5 @@
 import ArticleContainer from '@/components/container/article/articleContainer'
-import { fetchArticleList } from '@/libs/microcms'
+import { fetchArticleList } from '@/libs/microcms/microcms'
 
 export const dynamicParams = false
 
