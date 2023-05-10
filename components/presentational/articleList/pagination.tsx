@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import HorizontalLine from '@/components/presentational/horizontalLine'
+import HorizontalLine from '@/components/presentational/ui/horizontalLine'
 
 type paginationProps = {
   paginationCount: number

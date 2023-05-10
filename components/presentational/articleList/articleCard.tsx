@@ -1,7 +1,7 @@
-import ArticleCardDetail from '@/components/presentational/articleCardDetail'
-import ArticleCardImage from '@/components/presentational/articleCardImage'
-import HorizontalLine from '@/components/presentational/horizontalLine'
-import VerticalLine from '@/components/presentational/verticalLine'
+import ArticleCardDetail from '@/components/presentational/articleList/articleCardDetail'
+import ArticleCardImage from '@/components/presentational/articleList/articleCardImage'
+import HorizontalLine from '@/components/presentational/ui/horizontalLine'
+import VerticalLine from '@/components/presentational/ui/verticalLine'
 import type { Article } from '@/types'
 
 interface ArticleCardProps {

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import HeaderBorder from '@/components/presentational/headerBorder'
+import HeaderBorder from '@/components/presentational/ui/headerBorder'
 import { github, twitter } from '@/config/contactList'
 import { robotoBold } from '@/styles/fonts'
 
