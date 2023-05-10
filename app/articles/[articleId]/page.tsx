@@ -1,4 +1,4 @@
-import ArticleContainer from '@/components/container/articleContainer'
+import ArticleContainer from '@/components/container/article/articleContainer'
 import { fetchArticleList } from '@/libs/microcms'
 
 export const dynamicParams = false
@@ -12,7 +12,7 @@ export async function generateStaticParams() {
     }
   })
 
-  return [ ...paths ]
+  return [...paths]
 }
 
 export default ArticleContainer
