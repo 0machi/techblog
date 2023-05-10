@@ -1,4 +1,4 @@
-import ArticleListContainer from '@/components/container/articleListContainer'
+import ArticleListContainer from '@/components/container/articleList/articleListContainer'
 import { fetchArticleList } from '@/libs/microcms'
 import { getPaginationCount } from '@/libs/pagination'
 
