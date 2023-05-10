@@ -1,5 +1,5 @@
 import ArticleListContainerByAuthor from '@/components/container/articleList/articleListContainerByAuthor'
-import { fetchArticleList } from '@/libs/microcms/microcms'
+import { fetchArticleList } from '@/libs/microcms/article'
 import { getPaginationCount } from '@/libs/pagination'
 
 export const dynamicParams = false

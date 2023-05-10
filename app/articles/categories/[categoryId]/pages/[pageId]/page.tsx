@@ -1,5 +1,6 @@
 import ArticleListContainerByCategory from '@/components/container/articleList/articleListContainerByCategory'
-import { fetchArticleList, fetchCategoryList } from '@/libs/microcms/microcms'
+import { fetchArticleList } from '@/libs/microcms/article'
+import { fetchCategoryList } from '@/libs/microcms/category'
 import { getPaginationCount } from '@/libs/pagination'
 
 export const dynamicParams = false
