@@ -1,4 +1,4 @@
-import ArticleList from '@/components/presentational/articleList'
+import ArticleList from '@/components/presentational/articleListPage/articleList'
 import Pagination from '@/components/presentational/pagination'
 import HorizontalLine from '@/components/presentational/ui/horizontalLine'
 import Title from '@/components/presentational/ui/title'
