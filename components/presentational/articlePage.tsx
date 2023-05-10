@@ -1,6 +1,6 @@
 import Article from '@/components/presentational/article'
 import HorizontalLine from '@/components/presentational/horizontalLine'
-import Title from '@/components/presentational/title'
+import Title from '@/components/presentational/ui/title'
 import type { Article as ArticleType, Toc } from '@/types'
 
 type ArticlePageProps = {
