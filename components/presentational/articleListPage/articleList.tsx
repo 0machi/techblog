@@ -1,5 +1,5 @@
 import React from 'react'
-import ArticleCard from '@/components/presentational/articleCard'
+import ArticleCard from '@/components/presentational/articleListPage/articleCard'
 import type { Article } from '@/types'
 
 type ArticleListProps = {
