@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import ArticlePage from '@/components/presentational/articlePage'
+import ArticlePage from '@/components/presentational/articlePage/articlePage'
 import { highlightCodeBlock } from '@/libs/highlightjs'
 import { getToc } from '@/libs/markdown'
 import { fetchArticle } from '@/libs/microcms'
