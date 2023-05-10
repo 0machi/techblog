@@ -24,6 +24,6 @@ export default function Pagination({ paginationCount }: paginationProps) {
         </ul>
       </div>
       <HorizontalLine />
-    </
+    </>
   )
 }
