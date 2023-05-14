@@ -9,7 +9,7 @@ import { robotoRegular } from '@/styles/fonts'
 
 const siteName = 'shinaps tech blog'
 const description = 'shinaps tech blog'
-const url = 'https://shinaps-techblog.vercel.app/'
+const url = 'https://tech.shinaps.jp/'
 
 export const metadata: Metadata = {
   title: {
