@@ -7,6 +7,10 @@
     width: 100%;
 }
 
+#article-html a {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
 
 @media screen and (min-width: 766px) {
     #article-html .embedly-embed {
