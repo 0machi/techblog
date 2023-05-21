@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import { Analytics } from '@vercel/analytics/react'
 import { Metadata } from 'next'
 import Footer from '@/app/footer'
 import Header from '@/app/header'
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div
           className={`max-w-5xl max-lg:max-w-3xl h-8 mx-auto border-x border-dashed border-slate-200`}
         />
+        <Analytics />
       </body>
     </html>
   )
