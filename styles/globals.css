@@ -25,3 +25,7 @@
         height: 468px;
     }
 }
+
+.prose :where(pre):not(:where([class~="not-prose"] *)) {
+    padding: 0 !important;
+}
