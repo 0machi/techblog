@@ -12,58 +12,59 @@ export const size = {
   width: 1200,
   height: 630,
 }
-export const contentType = 'image/jpeg'
+export const contentType = 'image/png'
 
 export default async function og({ params: { articleId } }: { params: { articleId: string } }) {
   const article = await fetchArticle(articleId)
-
-  const lineFont = fetch(
-    new URL('../../../fonts/LINE/LINESeedJP_A_TTF_Eb.ttf', import.meta.url),
-  ).then((res) => res.arrayBuffer())
-
   if (article) {
     return new ImageResponse(
       (
         <div
           style={{
-            backgroundImage: 'url(https://tech.shinaps.jp/bg.jpg)',
+            backgroundImage: 'url(https://tech.shinaps.jp/bg.png)',
             backgroundColor: '#fff',
             backgroundSize: '100% 100%',
             height: '100%',
             width: '100%',
             display: 'flex',
             textAlign: 'left',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             justifyContent: 'center',
             flexDirection: 'column',
             flexWrap: 'nowrap',
-            position: 'relative',
           }}
         >
           <div
             style={{
-              width: '820px',
+              width: '100%',
               fontSize: 60,
               fontStyle: 'normal',
+              fontWeight: 'bold',
               color: '#000',
+              padding: '0 120px',
+              lineHeight: 1.3,
+              marginBottom: '30px',
               wordWrap: 'break-word',
             }}
           >
             {article.title}
           </div>
+          <div
+            style={{
+              width: '100%',
+              fontSize: 40,
+              fontStyle: 'normal',
+              fontWeight: 'bold',
+              color: '#000',
+              padding: '0 120px',
+              lineHeight: 1.3,
+            }}
+          >
+            {`✏️ ${article.author}`}
+          </div>
         </div>
       ),
-      {
-        ...size,
-        fonts: [
-          {
-            name: 'Inter',
-            data: await lineFont,
-            style: 'normal',
-            weight: 800,
-          },
-        ],
-      },
+      { ...size },
     )
   } else {
     return new Response('Not Found', { status: 404 })
