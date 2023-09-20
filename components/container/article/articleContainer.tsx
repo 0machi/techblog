@@ -4,12 +4,12 @@ import { highlightCodeBlock } from '@/libs/highlightjs'
 import { getToc } from '@/libs/markdown'
 import { fetchArticle } from '@/libs/microcms/article'
 
-export default async function ArticleContainer({
-  params: { articleId },
-}: {
+type Props = {
   params: { articleId: string }
-}) {
-  const article = await fetchArticle(articleId)
+}
+
+export default async function ArticleContainer({ params }: Props) {
+  const article = await fetchArticle(params.articleId)
 
   if (!article) notFound()
 
