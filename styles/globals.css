@@ -2,22 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.font-jp-regular,
-.font-jp-regular * {
-    font-family: var(--font-jp-regular) !important;
-}
-
-.font-jp-bold,
-.font-jp-bold * {
-    font-family: var(--font-jp-bold) !important;
-}
-
-.font-jp-extra-bold,
-.font-jp-extra-bold * {
-    font-family: var(--font-jp-extra-bold) !important;
-}
-
-
 
 #article-html .embedly-embed {
     width: 100%;
