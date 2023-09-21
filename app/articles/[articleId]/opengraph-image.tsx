@@ -26,7 +26,7 @@ export default async function og({ params: { articleId } }: { params: { articleI
       (
         <div
           style={{
-            backgroundImage: 'url(http://localhost:3000/bg.png)',
+            backgroundImage: 'url(https://tech.shinaps.jp/bg.png)',
             backgroundColor: '#fff',
             backgroundSize: '100% 100%',
             height: '100%',
