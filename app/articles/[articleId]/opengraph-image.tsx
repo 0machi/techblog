@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/server'
 import { fetchArticle } from '@/libs/microcms/article'
 
 /** ImageResponse対応 */
-export const runtime = 'edge'
+// export const runtime = 'edge'
 /** 有効期間 */
 export const revalidate = 10
 
