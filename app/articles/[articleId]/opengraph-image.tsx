@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/server'
 import { fetchArticle } from '@/libs/microcms/article'
 
 /** ImageResponse対応 */
-export const runtime = 'edge'
+// export const runtime = 'edge'
 /** 有効期間 */
 export const revalidate = 10
 
@@ -16,6 +16,11 @@ export const contentType = 'image/png'
 
 export default async function og({ params: { articleId } }: { params: { articleId: string } }) {
   const article = await fetchArticle(articleId)
+
+  const lineFont = fetch(new URL('../../../fonts/LINE/LINESeedJP_A_TTF_Eb.ttf', import.meta.url), {
+    cache: 'no-store',
+  }).then((res) => res.arrayBuffer())
+
   if (article) {
     return new ImageResponse(
       (
@@ -28,43 +33,37 @@ export default async function og({ params: { articleId } }: { params: { articleI
             width: '100%',
             display: 'flex',
             textAlign: 'left',
-            alignItems: 'flex-start',
+            alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'column',
             flexWrap: 'nowrap',
+            position: 'relative',
           }}
         >
           <div
             style={{
-              width: '100%',
+              width: '820px',
               fontSize: 60,
               fontStyle: 'normal',
-              fontWeight: 'bold',
               color: '#000',
-              padding: '0 120px',
-              lineHeight: 1.3,
-              marginBottom: '30px',
               wordWrap: 'break-word',
             }}
           >
             {article.title}
           </div>
-          <div
-            style={{
-              width: '100%',
-              fontSize: 40,
-              fontStyle: 'normal',
-              fontWeight: 'bold',
-              color: '#000',
-              padding: '0 120px',
-              lineHeight: 1.3,
-            }}
-          >
-            {`✏️ ${article.author}`}
-          </div>
         </div>
       ),
-      { ...size },
+      {
+        ...size,
+        fonts: [
+          {
+            name: 'Inter',
+            data: await lineFont,
+            style: 'normal',
+            weight: 800,
+          },
+        ],
+      },
     )
   } else {
     return new Response('Not Found', { status: 404 })
