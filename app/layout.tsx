@@ -6,7 +6,6 @@ import Header from '@/app/header'
 import HorizontalLine from '@/components/presentational/ui/horizontalLine'
 import { contactList } from '@/config/contactList'
 import { serviceList } from '@/config/serviceList'
-import { fontVariables } from '@/fonts'
 import { robotoRegular } from '@/styles/fonts'
 
 const siteName = 'shinaps tech blog'
@@ -44,7 +43,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='jp' className={`${robotoRegular.className} bg-white ${fontVariables.join(' ')}`}>
+    <html lang='jp' className={`${robotoRegular.className} bg-white`}>
       <body>
         <Header />
         {children}
