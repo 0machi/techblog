@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { robotoBold } from '@/styles/fonts'
 import { font } from '@/fonts'
 
 export default function Title() {

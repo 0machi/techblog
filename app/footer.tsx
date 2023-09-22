@@ -1,6 +1,6 @@
+import { font } from '@/fonts'
 import { getCurrentYear } from '@/libs/dayjs'
 import type { Service } from '@/types'
-import { font } from '@/fonts'
 
 interface FooterProps {
   serviceList: Service[]

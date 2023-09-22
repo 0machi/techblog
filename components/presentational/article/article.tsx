@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import React from 'react'
-import { formatDate } from '@/libs/dayjs'
-import { robotoBold, robotoMonoRegular } from '@/styles/fonts'
-import type { Article, Toc } from '@/types'
 import { font } from '@/fonts'
+import { formatDate } from '@/libs/dayjs'
+import { robotoMonoRegular } from '@/styles/fonts'
+import type { Article, Toc } from '@/types'
 
 type ArticleProps = {
   toc: Toc
