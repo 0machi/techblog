@@ -15,6 +15,29 @@ export async function generateMetadata(
   const article = await fetchArticle(params.articleId)
   const title = article.title
   const description = article.summary
+  const eyeCatch = article.eyecatch?.url
+
+  if (eyeCatch) {
+    return {
+      title: title,
+      description,
+      openGraph: {
+        title: title,
+        description,
+        siteName: 'shinaps tech blog',
+        locale: 'ja_JP',
+        type: 'website',
+        images: [eyeCatch],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: title,
+        description,
+        site: '@sh1n4ps',
+        creator: '@sh1n4ps',
+      },
+    }
+  }
 
   return {
     title: title,
