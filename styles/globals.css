@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+.font-jp-regular,
+.font-jp-regular * {
+    font-family: var(--font-jp-regular) !important;
+}
+
+.font-jp-bold,
+.font-jp-bold * {
+    font-family: var(--font-jp-bold) !important;
+}
+
+.font-jp-extra-bold,
+.font-jp-extra-bold * {
+    font-family: var(--font-jp-extra-bold) !important;
+}
+
+.with-code > pre > code {
+    font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace !important;
+}
 
 #article-html .embedly-embed {
     width: 100%;
