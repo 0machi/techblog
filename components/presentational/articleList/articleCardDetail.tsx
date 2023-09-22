@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
+import { font } from '@/fonts'
 import { formatDate } from '@/libs/dayjs'
-import { robotoBold, robotoMonoRegular, robotoRegular } from '@/styles/fonts'
+import { robotoMonoRegular } from '@/styles/fonts'
 import type { Article } from '@/types'
 
 type ArticleCardDetailProps = {
@@ -13,9 +14,9 @@ export default function ArticleCardDetail({ article }: ArticleCardDetailProps) {
     <div className={`max-w-[624px] grow`}>
       <div className={`max-w-[624px] p-3 mx-auto`}>
         <Link href={`/articles/${article.id}`}>
-          <h2 className={`${robotoBold.className} p-3 text-xl`}>{article.title}</h2>
+          <h2 className={`${font.JP_BOLD} p-3 text-xl`}>{article.title}</h2>
         </Link>
-        <h2 className={`${robotoRegular.className} p-3 text-sm`}>{article.summary}</h2>
+        <h2 className={`${font.JP_REGULAR} p-3 text-sm`}>{article.summary}</h2>
         <ul className={`${robotoMonoRegular.className} p-3 text-sm text-neutral-400`}>
           <li className={`py-0.5`}>
             <Link href={`/articles/authors/${article.author}/pages/1`}>

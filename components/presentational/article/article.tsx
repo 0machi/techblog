@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
+import { font } from '@/fonts'
 import { formatDate } from '@/libs/dayjs'
-import { robotoBold, robotoMonoRegular } from '@/styles/fonts'
+import { robotoMonoRegular } from '@/styles/fonts'
 import type { Article, Toc } from '@/types'
 
 type ArticleProps = {
@@ -17,7 +18,7 @@ export default function Article({ toc, article, html }: ArticleProps) {
         className={`prose prose-stone p-3 max-w-5xl max-lg:max-w-3xl mx-auto border-x border-dashed border-slate-200`}
       >
         <div className={`max-w-3xl mx-auto pt-12 pb-6`}>
-          <h1 className={`${robotoBold.className}`}>{article.title}</h1>
+          <h1 className={`${font.JP_BOLD}`}>{article.title}</h1>
           <ul className={`${robotoMonoRegular.className} p-3 text-sm text-neutral-400 list-none`}>
             <li className={`py-0.5 pl-0`}>
               author:{' '}
@@ -58,8 +59,8 @@ export default function Article({ toc, article, html }: ArticleProps) {
             </li>
           </ul>
 
-          <h2>目次</h2>
-          <ul className={`pl-4`}>
+          <h2 className={`${font.JP_REGULAR}`}>目次</h2>
+          <ul className={`pl-4 ${font.JP_REGULAR}`}>
             {toc.map((item) => (
               <li key={item.id} className={`list-none pl-0`}>
                 <a href={`#${item.id}`} className={`hover:text-violet-600 no-underline text-base`}>
@@ -69,7 +70,11 @@ export default function Article({ toc, article, html }: ArticleProps) {
             ))}
           </ul>
 
-          <div dangerouslySetInnerHTML={{ __html: html }} id={`article-html`} />
+          <div
+            className={`${font.JP_REGULAR} with-code`}
+            dangerouslySetInnerHTML={{ __html: html }}
+            id={`article-html`}
+          />
         </div>
       </div>
     </>
