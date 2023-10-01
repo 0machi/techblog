@@ -5,7 +5,9 @@ import 'highlight.js/styles/github-dark.css'
 export const highlightCodeBlock = (html: string): string => {
   const $ = load(html)
   $('pre code').each((_, elm) => {
-    const result = hljs.highlightAuto($(elm).text())
+    const language = $(elm).attr('class')?.replace('language-', '') || 'plaintext'
+    const code = $(elm).text()
+    const result = hljs.highlight(code, { language })
     $(elm).html(result.value)
     $(elm).addClass('hljs')
   })
