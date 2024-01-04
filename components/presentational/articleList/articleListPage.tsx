@@ -21,8 +21,11 @@ export default function ArticleListPage({
       <Title />
       <HorizontalLine />
       <ArticleList articleList={articleList} />
+      <HorizontalLine />
       <CategoryList articleList={articleList} />
+      <HorizontalLine />
       <Pagination paginationCount={paginationCount} pageNumber={pageNumber} />
+      <HorizontalLine />
     </>
   )
 }
