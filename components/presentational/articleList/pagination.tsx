@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import HorizontalLine from '@/components/presentational/ui/horizontalLine'
 
 type paginationProps = {
   paginationCount: number
@@ -32,7 +31,6 @@ export default function Pagination({ paginationCount, pageNumber }: paginationPr
           })}
         </ul>
       </div>
-      <HorizontalLine />
     </>
   )
 }
