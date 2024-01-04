@@ -1,6 +1,6 @@
 import ArticleList from '@/components/presentational/articleList/articleList'
-import CategoryList from '@/components/presentational/category/categoryList'
 import Pagination from '@/components/presentational/articleList/pagination'
+import CategoryList from '@/components/presentational/category/categoryList'
 import HorizontalLine from '@/components/presentational/ui/horizontalLine'
 import Title from '@/components/presentational/ui/title'
 import type { Article } from '@/types'
