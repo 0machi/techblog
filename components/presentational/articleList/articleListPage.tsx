@@ -7,15 +7,20 @@ import type { Article } from '@/types'
 type ArticleListPageProps = {
   articleList: Article[]
   paginationCount: number
+  pageNumber: number
 }
 
-export default function ArticleListPage({ articleList, paginationCount }: ArticleListPageProps) {
+export default function ArticleListPage({
+  articleList,
+  paginationCount,
+  pageNumber,
+}: ArticleListPageProps) {
   return (
     <>
       <Title />
       <HorizontalLine />
       <ArticleList articleList={articleList} />
-      <Pagination paginationCount={paginationCount} />
+      <Pagination paginationCount={paginationCount} pageNumber={pageNumber} />
     </>
   )
 }

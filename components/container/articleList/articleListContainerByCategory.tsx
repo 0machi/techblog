@@ -8,15 +8,21 @@ export default async function ArticleListContainerByCategory({
 }: {
   params: { pageId: string; categoryId: string }
 }) {
-  const pageIdNumber = Number(pageId) || 1
-  const { contents, totalCount } = await fetchArticleListByPage(pageIdNumber, {
+  const pageNumber = Number(pageId) || 1
+  const { contents, totalCount } = await fetchArticleListByPage(pageNumber, {
     filters: `categories[contains]${categoryId}`,
   })
 
   if (!contents || contents.length === 0) return <h1>No contents</h1>
 
   const paginationCount = getPaginationCount(totalCount)
-  if (paginationCount < pageIdNumber) return notFound()
+  if (paginationCount < pageNumber) return notFound()
 
-  return <ArticleListPage articleList={contents} paginationCount={paginationCount} />
+  return (
+    <ArticleListPage
+      articleList={contents}
+      paginationCount={paginationCount}
+      pageNumber={pageNumber}
+    />
+  )
 }

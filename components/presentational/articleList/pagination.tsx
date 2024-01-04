@@ -3,9 +3,10 @@ import HorizontalLine from '@/components/presentational/ui/horizontalLine'
 
 type paginationProps = {
   paginationCount: number
+  pageNumber: number
 }
 
-export default function Pagination({ paginationCount }: paginationProps) {
+export default function Pagination({ paginationCount, pageNumber }: paginationProps) {
   return (
     <>
       <div
@@ -13,10 +14,18 @@ export default function Pagination({ paginationCount }: paginationProps) {
       >
         <ul className={`flex w-40 mx-auto justify-center items-center`}>
           {[...Array(paginationCount)].map((_, i) => {
+            const pageIndex = i + 1
+            const isActive = pageIndex === pageNumber
             return (
               <li key={i}>
-                <Link href={`/articles/pages/${i + 1}`}>
-                  <span className={`w-5 h-5 block text-center hover:text-violet-600`}>{i + 1}</span>
+                <Link href={`/articles/pages/${pageIndex}`}>
+                  <span
+                    className={`w-5 h-5 block text-center hover:text-violet-600 ${
+                      isActive ? 'font-black text-violet-600' : ''
+                    }`}
+                  >
+                    {pageIndex}
+                  </span>
                 </Link>
               </li>
             )
